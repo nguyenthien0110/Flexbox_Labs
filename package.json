@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "@ant-design/nextjs-registry": "^1.0.2",
+    "@heroui/react": "^2.7.5",
     "clsx": "^2.1.1",
+    "heroui-cli": "^1.2.2",
+    "motion": "^12.6.3",
     "next": "15.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
