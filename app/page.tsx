@@ -1,7 +1,12 @@
+"use client";
+
 import Header from "./components/main/Header";
 import Nav from "./components/main/Nav";
+import useStore from "./store/useStore";
 
 export default function Home() {
+  const state = useStore()
+  console.log(state);
   return (
     <>
       <div className="bg-[#050505] w-full h-screen fixed">
@@ -12,7 +17,7 @@ export default function Home() {
           <div className="bg-[#131417] min-h-[100hv] w-16 ml-2 border rounded-2xl mb-4">
             <Nav />
           </div>
-          <div className="bg-[#131417] min-h-[100hv] w-[360px] border rounded-2xl mb-4"></div>
+          <div className="bg-[#131417] min-h-[100hv] w-96 border rounded-2xl mb-4"></div>
           <div className="bg-[#131417] min-h-[100hv] flex-1 mr-2 border rounded-2xl mb-4"></div>
         </div>
       </div>
