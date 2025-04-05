@@ -1,11 +1,12 @@
 "use client";
 
+import FlexLayoutControls from "./components/main/FlexLayoutControls";
 import Header from "./components/main/Header";
 import Nav from "./components/main/Nav";
 import useStore from "./store/useStore";
 
 export default function Home() {
-  const state = useStore()
+  const state = useStore();
   console.log(state);
   return (
     <>
@@ -17,7 +18,9 @@ export default function Home() {
           <div className="bg-[#131417] min-h-[100hv] w-16 ml-2 border rounded-2xl mb-4">
             <Nav />
           </div>
-          <div className="bg-[#131417] min-h-[100hv] w-96 border rounded-2xl mb-4"></div>
+          <div className="bg-[#131417] min-h-[100hv] w-96 border rounded-2xl mb-4 flex justify-center">
+            <FlexLayoutControls />
+          </div>
           <div className="bg-[#131417] min-h-[100hv] flex-1 mr-2 border rounded-2xl mb-4"></div>
         </div>
       </div>
