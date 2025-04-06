@@ -1,12 +1,16 @@
 "use client";
 
+// import { useState } from "react";
 import FlexLayoutControls from "./components/main/FlexLayoutControls";
 import Header from "./components/main/Header";
 import Nav from "./components/main/Nav";
-import useStore from "./store/useStore";
+import Playground from "./components/main/Playground";
+import clsx from "clsx";
+import { useStore } from "./store/useStore";
 
 export default function Home() {
   const state = useStore();
+  // const [open, setOpen] = useState(true);
   console.log(state);
   return (
     <>
@@ -15,13 +19,20 @@ export default function Home() {
           <Header />
         </div>
         <div className="flex w-full h-screen pt-16 gap-2">
-          <div className="bg-[#131417] min-h-[100hv] w-16 ml-2 border rounded-2xl mb-4">
+          <div className="bg-[#131417] min-h-[100hv] w-16 ml-2 border rounded-2xl mb-4 relative">
             <Nav />
           </div>
-          <div className="bg-[#131417] min-h-[100hv] w-96 border rounded-2xl mb-4 flex justify-center">
+          <div
+            className={clsx(
+              `bg-[#131417] min-h-[100hv] w-96 border rounded-2xl mb-4 justify-center`,
+              true ? "flex" : "hidden"
+            )}
+          >
             <FlexLayoutControls />
           </div>
-          <div className="bg-[#131417] min-h-[100hv] flex-1 mr-2 border rounded-2xl mb-4"></div>
+          <div className="bg-[#131417] min-h-[100hv] flex-1 mr-2 border rounded-2xl mb-4">
+            <Playground />
+          </div>
         </div>
       </div>
     </>

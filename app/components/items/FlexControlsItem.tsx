@@ -6,7 +6,7 @@ interface props {
   icon: ReactNode;
   option: string[];
   isGap?: boolean;
-  toolTip: {
+  toolTip?: {
     id: number;
     designation: string;
     icon: ReactNode;
@@ -52,11 +52,15 @@ function FlexControlsItem(props: props) {
           </div>
         </div>
         <div className="h-6 w-6 text-2xl text-white absolute right-0 flex justify-center items-center mr-4 bg-[#121212] rounded-4xl inset-shadow-zinc-500">
-          <AnimatedTooltip
-            id={props.toolTip.id}
-            designation={props.toolTip.designation}
-            icon={props.toolTip.icon}
-          />
+          {props.toolTip && (
+            <>
+              <AnimatedTooltip
+                id={props.toolTip.id}
+                designation={props.toolTip.designation}
+                icon={props.toolTip.icon}
+              />
+            </>
+          )}
         </div>
       </div>
     </>

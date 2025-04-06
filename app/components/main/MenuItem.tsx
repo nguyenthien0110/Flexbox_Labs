@@ -12,12 +12,14 @@ function MenuItem(props: props) {
     <>
       <div
         className={clsx(
-          `flex items-center justify-center my-1 h-10 w-10 text-2xl rounded-lg hover:cursor-pointer`,
-          props.active ? "bg-[#434752] text-white" : undefined,
+          `flex items-center justify-center my-1 h-10 w-10 text-2xl hover:cursor-pointer`,
+          props.active ? "bg-[#434752] text-white rounded-lg" : undefined,
           props.isButton ? "text-white" : "text-gray-600 hover:text-white"
         )}
       >
-        {props.icon}
+        <span className="hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]">
+          {props.icon}
+        </span>
       </div>
     </>
   );
