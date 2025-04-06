@@ -1,5 +1,9 @@
-import { ReactNode } from "react";
+"use client";
+
+import { ReactNode, useState } from "react";
 import { AnimatedTooltip } from "../ui/animated-tooltip";
+import { useStore } from "@/app/store/useStore";
+import { changeGridState } from "@/app/utils/helpers";
 
 interface props {
   title: string;
@@ -14,6 +18,19 @@ interface props {
 }
 
 function FlexControlsItem(props: props) {
+  const [valueOption, setValueOption] = useState("");
+  const state = useStore();
+
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setValueOption(event.target.value);
+    const newValue = changeGridState(
+      state.grids,
+      props.title,
+      event.target.value
+    );
+    state.setGrids(newValue);
+  };
+
   return (
     <>
       <div className="relative flex items-center my-4 h-20 mx-2 border rounded-2xl bg-[#24292d] gap-4 hover:cursor-pointer">
@@ -36,6 +53,8 @@ function FlexControlsItem(props: props) {
             )}
             <select
               id="select-1"
+              onChange={handleChange}
+              value={valueOption}
               className="mt-2 py-1 px-4 pe-0 block w-full rounded-lg text-sm bg-black shadow-2xl focus:outline-none"
             >
               {props.option.map((option) => (

@@ -1,20 +1,17 @@
 "use client";
 
-import { createContext, ReactNode, useContext } from "react";
-
-type Store = {
-  color: string;
-};
-
-const defaultStore: Store = {
-  color: "#ffff",
-};
+import { createContext, ReactNode, useContext, useState } from "react";
+import { defaultStore, Grids, Store } from "../utils/type";
 
 const StoreContext = createContext<Store>(defaultStore);
 
 export const StoreProvider = ({ children }: { children: ReactNode }) => {
+  const [grids, setGridsStore] = useState<Grids>(defaultStore.grids);
+  const setGrids = (update: Partial<Grids>) => {
+    setGridsStore((prev) => ({ ...prev, ...update }));
+  };
   return (
-    <StoreContext.Provider value={defaultStore}>
+    <StoreContext.Provider value={{ grids, setGrids }}>
       {children}
     </StoreContext.Provider>
   );

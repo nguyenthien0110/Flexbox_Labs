@@ -110,3 +110,76 @@ export const flexLayoutList = [
     },
   },
 ];
+
+export const typeKey = {
+  display: {
+    flex: "flex",
+    block: "block",
+  },
+  flexDirection: {
+    row: "flex-row",
+    "row-reverse": "flex-row-reverse",
+    column: "flex-col",
+    "column-reverse": "flex-col-reverse",
+  },
+  flexWrap: {
+    nowrap: "flex-nowrap",
+    wrap: "flex-wrap",
+    "wrap-reverse": "flex-wrap-reverse",
+  },
+  justifyContent: {
+    start: "justify-start",
+    center: "justify-center",
+    end: "justify-end",
+    "space-between": "justify-between",
+    "space-around": "justify-around",
+    "space-evenly": "justify-evenly",
+  },
+  alignItems: {
+    stretch: "items-stretch",
+    start: "items-start",
+    center: "items-center",
+    end: "items-end",
+    baseline: "items-baseline",
+  },
+  alignContent: {
+    stretch: "content-stretch",
+    start: "content-start",
+    center: "content-center",
+    end: "content-end",
+    "space-between": "content-between",
+    "space-around": "content-around",
+  },
+  gap: {
+    px: "gap-px",
+    "%": "gap-[var(--percent)]",
+  },
+};
+
+export interface Grids {
+  display: string;
+  flexDirection: string;
+  flexWrap: string;
+  justifyContent: string;
+  alignItems: string;
+  alignContent: string;
+  gap: string;
+}
+
+export interface Store {
+  grids: Grids;
+  setGrids: (store: Partial<Grids>) => void;
+}
+
+export const defaultStore: Store = {
+  grids: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "start",
+    alignItems: "stretch",
+    alignContent: "stretch",
+    gap: "0",
+  },
+  setGrids: () => {},
+};

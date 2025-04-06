@@ -1,17 +1,12 @@
 "use client";
 
-// import { useState } from "react";
 import FlexLayoutControls from "./components/main/FlexLayoutControls";
 import Header from "./components/main/Header";
 import Nav from "./components/main/Nav";
 import Playground from "./components/main/Playground";
 import clsx from "clsx";
-import { useStore } from "./store/useStore";
 
 export default function Home() {
-  const state = useStore();
-  // const [open, setOpen] = useState(true);
-  console.log(state);
   return (
     <>
       <div className="bg-[#050505] w-full h-screen fixed">
