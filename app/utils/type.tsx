@@ -151,9 +151,12 @@ export const typeKey = {
     "space-around": "content-around",
   },
   gap: {
-    px: "gap-px",
-    "%": "gap-[var(--percent)]",
+    px: "px",
+    "%": "%",
   },
+  sizeGap:{
+    size: "%data"
+  }
 };
 
 export interface Grids {
@@ -164,6 +167,7 @@ export interface Grids {
   alignItems: string;
   alignContent: string;
   gap: string;
+  sizeGap: string;
 }
 
 export interface Store {
@@ -179,7 +183,8 @@ export const defaultStore: Store = {
     justifyContent: "start",
     alignItems: "stretch",
     alignContent: "stretch",
-    gap: "0",
+    gap: "px",
+    sizeGap: "0"
   },
   setGrids: () => {},
 };

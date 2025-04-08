@@ -12,6 +12,7 @@
     "@ant-design/nextjs-registry": "^1.0.2",
     "@heroui/react": "^2.7.5",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.6.3",
     "heroui-cli": "^1.2.2",
     "motion": "^12.6.3",
     "next": "15.2.4",

@@ -19,6 +19,7 @@ interface props {
 
 function FlexControlsItem(props: props) {
   const [valueOption, setValueOption] = useState("");
+  const [gap, setGap] = useState(0);
   const state = useStore();
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -43,9 +44,15 @@ function FlexControlsItem(props: props) {
             {props.isGap ? (
               <input
                 type="number"
-                min={0}
                 max={9999}
-                defaultValue={0}
+                value={gap}
+                onChange={(e) => {
+                  setGap(Number(e.target.value));
+                  state.setGrids({
+                    ...state.grids,
+                    ["sizeGap"]: e.target.value,
+                  });
+                }}
                 className="bg-black text-center max-w-8 rounded-lg text-sm shadow-2xl h-6 mt-2 flex justify-center no-spinners focus:outline-none"
               />
             ) : (

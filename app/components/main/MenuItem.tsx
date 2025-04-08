@@ -1,13 +1,23 @@
 import clsx from "clsx";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
+import { motion } from "motion/react";
 
 interface props {
   icon: ReactNode;
   active?: boolean | false;
   isButton?: boolean | false;
+  isCollapse?: boolean | false;
 }
 
 function MenuItem(props: props) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const handleClick = () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setIsOpen((pre) => !pre);
+  };
   return (
     <>
       <div
@@ -17,9 +27,23 @@ function MenuItem(props: props) {
           props.isButton ? "text-white" : "text-gray-600 hover:text-white"
         )}
       >
-        <span className="hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]">
-          {props.icon}
-        </span>
+        {props.isCollapse ? (
+          <motion.div
+            animate={{ rotate: isOpen ? 180 : 0 }}
+            transition={{ duration: 0.2 }}
+            onAnimationComplete={() => setIsAnimating(false)}
+            className="flex justify-center w-16 h-auto"
+            onClick={handleClick}
+          >
+            {props.icon}
+          </motion.div>
+        ) : (
+          <>
+            <span className="hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]">
+              {props.icon}
+            </span>
+          </>
+        )}
       </div>
     </>
   );

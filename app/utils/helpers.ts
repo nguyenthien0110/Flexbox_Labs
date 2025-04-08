@@ -41,5 +41,6 @@ export const getStytleTailwind = (grids: Grids): string => {
     if (valueKey in objKey)
       style = style + " " + objKey[valueKey as keyof typeof objKey];
   }
+  console.log(style);
   return style ?? "";
 };

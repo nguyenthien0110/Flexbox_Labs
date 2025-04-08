@@ -10,7 +10,11 @@ function Nav() {
     <>
       <div className="text-black">
         <div className="flex justify-center w-16 h-auto">
-          <MenuItem icon={<TbLayoutSidebarLeftCollapse />} isButton={true} />
+          <MenuItem
+            icon={<TbLayoutSidebarLeftCollapse />}
+            isCollapse={true}
+            isButton={true}
+          />
         </div>
         <div className="h-[0.1rem] w-full flex justify-center">
           <div className="h-[0.1rem] w-[60%] bg-gray-600" />
